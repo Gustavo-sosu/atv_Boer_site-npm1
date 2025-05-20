@@ -5,36 +5,26 @@ import { useAuthentication } from '../hooks/useAuthentication';
 const RegisterShop = () => {
 
     const [displayNameShop, setDisplayNameShop]=useState('');
-    const [displayEmailShop, setEmailShop]  = useState('');
-    const [displayPasswordShop, setPasswordShop]  = useState('');
-    const [displayConfirmShop, setConfirmShop]  = useState('');
-    const [error, setError] = useState('');
-    const {createShop, error: authError, loading} = useAuthentication();
+    const [displayEnderecoShop, setEnderecoShop]  = useState('');
+    const [displayCidadeShop, setCidadeShop]  = useState('');
+    const [displayUFShop, setUFShop]  = useState('');
+    const {createShop, loading} = useAuthentication();
 
     const handleSubmit = async (e)=> {
         e.preventDefault();
-        setError("")
  
         const shop = {
             displayNameShop,
-            displayEmailShop,
-            displayPasswordShop
+            displayEnderecoShop: displayEnderecoShop,
+            displayCidadeShop: displayCidadeShop,
+            displayUFShop: displayUFShop,
         }
     
-        if (displayPasswordShop !== displayConfirmShop) {
-            setError("As senhas precisam ser iguais!")
-            return
-        }
 
         const res = await createShop(shop)
     }
 
-    useEffect(() => {
-            if (authError){
-                setError(authError);
-            }
-        
-    })
+
 
     return (
         <div>
@@ -51,34 +41,34 @@ const RegisterShop = () => {
                 </label>
                 <label>
                     <span>
-                        E-mail:
+                        Endereço:
                     </span>
-                    <input type="email" name="displayEmailShop" required placeholder="E-mail da Loja" 
-                         value={displayEmailShop}
-                         onChange={(e) => setEmailShop(e.target.value)}
+                    <input type="text" name="displayEnderecoShop" required placeholder="Endereço da Loja" 
+                         value={displayEnderecoShop}
+                         onChange={(e) => setEnderecoShop(e.target.value)}
                     />
                 </label>
                 <label>
                     <span>
-                        Senha:
+                        Cidade:
                     </span>
-                    <input type="password" name="displayPasswordShop" required placeholder="Senha" 
-                        value={displayPasswordShop}
-                        onChange={(e) => setPasswordShop(e.target.value)}
+                    <input type="text" name="displayCidadeShop" required placeholder="Cidade da Loja" 
+                        value={displayCidadeShop}
+                        onChange={(e) => setCidadeShop(e.target.value)}
                     />
                 </label>
                 <label>
                     <span>
-                        Confirmar Senha:
+                        UF:
                     </span>
-                    <input type="password" name="displayConfirmShop" required placeholder="Repetir Senha" 
-                        value={displayConfirmShop}
-                        onChange={(e) => setConfirmShop(e.target.value)}
+                    <input type="text" name="displayUFShop" required placeholder="UF:" 
+                        value={displayUFShop}
+                        onChange={(e) => setUFShop(e.target.value)}
                     />
                 </label>
                 {!loading && <button className="btn">Cadastrar Loja</button>}
                 {loading &&  <button className="btn" disabled>Aguarde...</button>}
-                {error && <p className="error">{error}</p>}
+                <p>Já possui uma Loja cadastrada? <a href="">Logue aqui</a></p>
             </form>
         </div>
     )

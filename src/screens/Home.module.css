@@ -1,19 +1,21 @@
 .container {
-    max-width: 1440px;
-    height: 573px;
-    margin: auto;
-    padding: 32px;
+    width: 100vw; /* 100% da largura da viewport */
+    height: 100vh; /* 100% da altura da viewport */
+    margin: 0; /* remove margens padrão */
+    padding: 0; /* remove padding padrão */
     display: flex;
-    flex-direction: column;
+    flex: 1;
     gap: 32px;
     background-image: url('../imgs/fundo.jpg');
+    image-rendering: pixelated;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
+
 .intro {
     text-align: center;
+    padding: 25px;
 }
 
 .intro h1 {
@@ -44,9 +46,9 @@
 
 .cards {
     display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+    gap: 50px;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .card.top {
@@ -54,6 +56,7 @@
     padding: 32px;
     border-radius: 12px;
     width: 300px;
+    height: 200px;
     box-shadow: 0 0 15px rgba(0, 120, 255, 0.5);
     transform: scale(1.05);
     font-size: 17.6px;
@@ -82,6 +85,7 @@
     padding: 24px;
     border-radius: 10px;
     width: 280px;
+    height: 200px;
     box-shadow: 0 0 10px rgba(0, 120, 255, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
