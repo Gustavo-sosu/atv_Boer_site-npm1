@@ -6,6 +6,7 @@ import Login from './screens/Login';
 import Contact from './screens/Contact';
 import About from './screens/About';
 import Cadastrar from './screens/Register'
+import RegisterShop from './screens/RegisterShop'
 import NavBar from './components/navbar';//ifydtfuygujipkjhgyfdtryughjkl,
 //importante (add pelo prof, serve pra afirma as rotas)
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Cadastrar />} />
+            <Route path="/registerShop" element={<RegisterShop />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
           </Routes>
