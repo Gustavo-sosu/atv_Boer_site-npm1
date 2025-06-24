@@ -1,18 +1,74 @@
 .painelContainer {
-  display: flex;
-  height: 100vh;
-  font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 90vh;
+    background: linear-gradient(120deg, #0078ff 0%, #001f3f 100%);
+    border-radius: 18px;
+    margin: 40px auto;
+    box-shadow: 0 0 25px rgba(0, 120, 255, 0.3);
+    width: 90vw;
+    max-width: 1200px;
+    color: #fff;
 }
- 
+
 .menuLateral {
-  width: 250px;
-  background-color: #2e7d32;
-  color: white;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background: #0f0f1c;
+    border-radius: 18px 0 0 18px;
+    padding: 40px 24px;
+    min-width: 220px;
+    box-shadow: 2px 0 15px rgba(0, 120, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
- 
+
 .tituloMenu {
-  font-size: 24px;
-  margin-bottom: 30px;
+    color: #00f2ff;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.menuLateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menuLateral li {
+    margin-bottom: 24px;
+}
+
+.linkMenu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: #0078ff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 120, 255, 0.15);
+}
+
+.linkMenu:hover,
+.linkMenu.active {
+    background: #00f2ff;
+    color: #0f0f1c;
+    transform: scale(1.05);
+}
+
+.icone {
+    font-size: 1.3em;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 40px 32px;
+    background: rgba(15, 15, 28, 0.95);
+    border-radius: 0 18px 18px 0;
+    min-height: 100%;
+    box-shadow: -2px 0 15px rgba(0, 120, 255, 0.08);
 }
