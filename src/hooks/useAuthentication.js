@@ -54,37 +54,33 @@ export const useAuthentication = () => {
         }
     }
 
-    // Login
-    const login = async (data, navigate) => {
-        checkIfIsCancelled()
-        setLoading(true)
-        setError(false)
-        console.log(data.email)
-        console.log(data.password)
+    // ...existing code...
 
-        try {
+const login = async (email, password) => {
+    checkIfIsCancelled();
+    setLoading(true);
+    setError(null);
 
-            await signInWithEmailAndPassword(auth, data.email, data.password)
-
-            // Redireciona após login com sucesso
-            navigate("/painel");
-
-        } catch (error) {
-            let systemErrorMessage;
-
-            if (error.message.includes("user-not-found")) {
-                systemErrorMessage = "Usuário não Cadastrado"
-            } else if (error.message.includes("wrong-password")) {
-                systemErrorMessage = "Senha Incorreta"
-            }
-            else {
-                systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde"
-            }
-            setError(systemErrorMessage)
-        } finally {
-            setLoading(false)
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        setLoading(false);
+        return true; // Retorna true em caso de sucesso
+    } catch (error) {
+        let systemErrorMessage;
+        if (error.message.includes("user-not-found")) {
+            systemErrorMessage = "Usuário não encontrado";
+        } else if (error.message.includes("wrong-password")) {
+            systemErrorMessage = "Senha incorreta";
+        } else {
+            systemErrorMessage = "Ocorreu um erro - Tente Novamente";
         }
-    };
+        setError(systemErrorMessage);
+        setLoading(false);
+        return false; // Retorna false em caso de erro
+    }
+};
+
+// ...existing code...
 
 
     useEffect(() => {
